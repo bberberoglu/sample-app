@@ -1,0 +1,26 @@
+<body>
+<header id="pageHeader">
+  <h3>Sample App</h3>
+</header>
+<article id="mainArticle">
+  <ng-container *ngIf="component"
+                [appLoadModule]="component.appLoadModule"
+                [appLoadModuleComponent]="component.appLoadModuleComponent">
+  </ng-container>
+</article>
+<nav id="mainNav">
+  <mat-list>
+    <div *ngFor="let item of this.Menu; let i = index">
+      <h3 mat-subheader>{{item.name}}</h3>
+      <mat-list-item *ngFor="let component of item.components">
+        <button mat-icon-button (click)="handleMenuClick(component)">
+          <mat-icon mat-list-icon>note</mat-icon>
+          {{component.name}}
+        </button>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+    </div>
+  </mat-list>
+</nav>
+<footer id="pageFooter">Footer</footer>
+</body>
